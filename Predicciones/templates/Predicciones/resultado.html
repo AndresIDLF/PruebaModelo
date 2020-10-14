@@ -1,0 +1,29 @@
+{% extends "Predicciones/base.html" %}
+{% load static %}
+
+{%block estilos%}
+<link rel="stylesheet" type="text/css" href="{% static 'css/resultados.css' %}">
+{%endblock%}
+
+{% block titulo %}
+Resultados
+{%endblock%}
+
+{% block banner %}
+<h1><a href="/" style="margin-left:5px;color:white; text-decoration:none; float:left"><i class="fas fa-arrow-alt-circle-left"></i></a>Lista de Resultados <a href="/admin" style="margin-right:5px;color:white; text-decoration:none; float:right"><i class="fas fa-users-cog"></i></a></h1>
+{% endblock%}
+
+
+{% block contenido %}
+
+{% for objeto in Predicciones %}
+<div class="info">
+<p>N°: {{objeto.Num_count}}</p>
+<p>Número Imagen: {{objeto.ID_Imagen}}</p>
+<p>Clase: {{objeto.Clase_Prediccion}}</p>
+<p>% Con Pérdida: {{objeto.Porcentaje_Clase1}}</p>
+<p>% Sin Pérdida: {{objeto.Porcentaje_Clase2}}</p>
+</div>
+{% endfor %}
+
+{% endblock %}
